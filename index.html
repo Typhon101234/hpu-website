@@ -1,60 +1,116 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f5f5f5;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>High Performance Unit</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-.hero {
-  padding: 100px 20px;
-  background: white;
-}
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">Remote Fitness Coaching</p>
+    <h1>Get Lean, Strong &amp; Disciplined</h1>
+    <p class="subtext">A structured program built for busy, driven people who want real results without stepping foot in a gym or being hovered over by a trainer.</p>
+    <a class="btn" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
+  </section>
 
-h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
+  <!-- WHO IT'S FOR -->
+  <section class="section">
+    <h2>This Program Is Built For You If...</h2>
+    <div class="cards">
 
-p {
-  color: #444;
-  font-size: 18px;
-}
+      <div class="card">
+        <div class="card-icon">&#128188;</div>
+        <h3>You're a busy corporate professional</h3>
+        <p>You have a demanding job and no time to research workouts, build programs or figure out what actually works. We handle all of that for you.</p>
+      </div>
 
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: black;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-}
+      <div class="card">
+        <div class="card-icon">&#127758;</div>
+        <h3>You work or travel from anywhere</h3>
+        <p>Whether you're in Nairobi, London or working remotely from a different city every month, your program travels with you and your coach checks in remotely.</p>
+      </div>
 
-.section {
-  padding: 60px 20px;
-  background: white;
-}
+      <div class="card">
+        <div class="card-icon">&#127919;</div>
+        <h3>You want accountability without the babysitting</h3>
+        <p>No trainer breathing down your neck at the gym. Just structured check-ins, progress tracking and someone who holds you to your commitment, from a distance.</p>
+      </div>
 
-.dark {
-  background: #111;
-  color: white;
-}
+      <div class="card">
+        <div class="card-icon">&#127775;</div>
+        <h3>You're self-driven but need a system</h3>
+        <p>You know what you want but keep starting over. HPU gives you a clear, personalised program so you can stop guessing and start progressing.</p>
+      </div>
 
-.dark p {
-  color: #ccc;
-}
+    </div>
+  </section>
 
-.card {
-  display: inline-block;
-  width: 250px;
-  margin: 15px;
-  padding: 20px;
-  background: #eee;
-  border-radius: 8px;
-}
+  <!-- WHAT YOU GET -->
+  <section class="section dark">
+    <h2>What You Get</h2>
+    <div class="cards">
 
-footer {
-  padding: 20px;
-  background: #000;
-  color: white;
-}
+      <div class="card dark-card">
+        <div class="card-icon">&#128203;</div>
+        <h3>A custom workout program</h3>
+        <p>Built specifically for your goals, schedule and available equipment. No generic plans. No guesswork.</p>
+      </div>
+
+      <div class="card dark-card">
+        <div class="card-icon">&#128241;</div>
+        <h3>Remote check-ins via WhatsApp</h3>
+        <p>Weekly check-ins to track your progress, adjust the program and keep you accountable from wherever you are.</p>
+      </div>
+
+      <div class="card dark-card">
+        <div class="card-icon">&#127807;</div>
+        <h3>Nutrition guidance</h3>
+        <p>Simple, practical eating advice that fits your lifestyle. No crash diets, no complicated meal plans.</p>
+      </div>
+
+      <div class="card dark-card">
+        <div class="card-icon">&#128200;</div>
+        <h3>Progress tracking</h3>
+        <p>We monitor your numbers and adjust your program every month so you keep moving forward, not plateauing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing">
+    <h2>Simple, Transparent Pricing</h2>
+    <p class="subtext">No hidden fees. No lock-in contracts. Cancel anytime.</p>
+    <div class="price-card">
+      <p class="price-label">Monthly Subscription</p>
+      <p class="price-amount">KES 6,000 <span>/month</span></p>
+      <ul class="price-list">
+        <li>&#10003; &nbsp;Personalised workout program</li>
+        <li>&#10003; &nbsp;Weekly remote check-ins</li>
+        <li>&#10003; &nbsp;Nutrition guidance</li>
+        <li>&#10003; &nbsp;Program adjustments every month</li>
+        <li>&#10003; &nbsp;WhatsApp access to your coach</li>
+        <li>&#10003; &nbsp;Works from anywhere in the world</li>
+      </ul>
+      <a class="btn" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>High Performance Unit &mdash; Remote Fitness Coaching</p>
+    <p>&#128205; Nairobi, Kenya &nbsp;|&nbsp; Available worldwide</p>
+  </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a class="whatsapp-float" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.469 2.027 7.774L0 32l8.522-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.766-1.846l-.484-.287-5.06 1.191 1.22-4.942-.316-.507A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.878c-.398-.199-2.356-1.163-2.72-1.295-.365-.133-.631-.199-.897.199-.266.398-1.031 1.295-1.264 1.561-.232.266-.465.299-.863.1-.398-.199-1.681-.619-3.202-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.698.199-.232.265-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.673-.897-.685l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.324 0 1.962 1.428 3.858 1.627 4.124.199.266 2.812 4.294 6.813 6.023.952.411 1.695.657 2.274.841.955.304 1.825.261 2.513.158.766-.114 2.356-.963 2.688-1.894.332-.931.332-1.729.232-1.894-.099-.166-.365-.266-.763-.465z"/>
+    </svg>
+  </a>
+
+</body>
+</html>
