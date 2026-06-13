@@ -342,3 +342,49 @@ footer {
   .price-amount { font-size: 38px; }
   .bottom-overlay h2 { font-size: 24px; }
 }
+
+/* REVIEWS */
+.reviews-meta {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: var(--gold);
+  margin-top: -36px;
+  margin-bottom: 44px;
+  font-weight: 600;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+.review-card {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 28px 24px;
+  border-bottom: 3px solid var(--gold);
+  border-left: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+  border-top: 1px solid #e8e8e8;
+}
+.review-stars {
+  color: var(--gold);
+  font-size: 16px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+.review-text {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.review-author {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
