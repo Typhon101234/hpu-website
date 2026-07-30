@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPU Training Tee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e0f0c;
+    --paper:#f5f6ef;
+    --lime:#c8ff4d;
+    --lime-dim:#9fd83c;
+    --line:#2a2c24;
+    --muted:#8b8d80;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+  }
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  header{
+    padding:28px 0 20px;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{
+    font-family:'Anton',sans-serif;
+    letter-spacing:0.04em;
+    font-size:22px;
+    color:var(--lime);
+  }
+  .hero{
+    padding:56px 0 40px;
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding:36px 0 24px;}
+  }
+  .eyebrow{
+    color:var(--lime);
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    margin-bottom:14px;
+  }
+  h1{
+    font-family:'Anton',sans-serif;
+    font-weight:400;
+    font-size:clamp(40px,7vw,64px);
+    line-height:0.95;
+    margin:0 0 18px;
+    letter-spacing:0.01em;
+  }
+  h1 span{color:var(--lime);}
+  .sub{
+    color:var(--muted);
+    font-size:16px;
+    max-width:40ch;
+    margin-bottom:28px;
+  }
+  .price-tag{
+    display:inline-flex;
+    align-items:baseline;
+    gap:8px;
+    font-family:'Anton',sans-serif;
+    font-size:32px;
+    color:var(--paper);
+  }
+  .price-tag small{
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    color:var(--muted);
+    font-weight:500;
+  }
+  .art{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:#0e0f0c;
+  }
+  .art img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    aspect-ratio:4/5;
+  }
+  .gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:10px;
+  }
+  .gallery img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    aspect-ratio:1/1;
+    border:1px solid var(--line);
+    border-radius:4px;
+    cursor:pointer;
+    transition:border-color 0.15s ease;
+  }
+  .gallery img:hover{
+    border-color:var(--lime);
+  }
+  section.order{
+    padding:8px 0 72px;
+  }
+  .card{
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:32px;
+    background:#131409;
+  }
+  .field{
+    margin-bottom:20px;
+  }
+  label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    margin-bottom:10px;
+  }
+  .sizes{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .size-btn{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    padding:12px 0;
+    width:56px;
+    border-radius:4px;
+    cursor:pointer;
+    transition:all 0.15s ease;
+  }
+  .size-btn:hover{border-color:var(--lime-dim);}
+  .size-btn.active{
+    background:var(--lime);
+    border-color:var(--lime);
+    color:var(--ink);
+  }
+  .colours{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .colour-btn{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    font-family:'Inter',sans-serif;
+    font-size:11px;
+    color:var(--muted);
+    padding:0;
+  }
+  .colour-btn::before{
+    content:"";
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    background:var(--swatch);
+    border:2px solid var(--line);
+    display:block;
+    transition:border-color 0.15s ease;
+  }
+  .colour-btn:hover::before{
+    border-color:var(--lime-dim);
+  }
+  .colour-btn.active::before{
+    border-color:var(--lime);
+    box-shadow:0 0 0 2px var(--ink), 0 0 0 3px var(--lime);
+  }
+  .colour-btn.active{
+    color:var(--paper);
+  }
+  input[type=text], input[type=tel]{
+    width:100%;
+    background:var(--ink);
+    border:1px solid var(--line);
+    color:var(--paper);
+    padding:14px 16px;
+    border-radius:4px;
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+  }
+  input:focus{
+    outline:none;
+    border-color:var(--lime);
+  }
+  .pay-box{
+    background:var(--ink);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:18px 20px;
+    margin-bottom:24px;
+    font-size:14px;
+    color:var(--muted);
+  }
+  .pay-box b{color:var(--lime);}
+  .pay-box .till{
+    font-family:'Anton',sans-serif;
+    font-size:22px;
+    color:var(--paper);
+    letter-spacing:0.04em;
+    margin:6px 0;
+  }
+  .cta{
+    width:100%;
+    background:var(--lime);
+    color:var(--ink);
+    border:none;
+    font-family:'Anton',sans-serif;
+    font-size:18px;
+    letter-spacing:0.03em;
+    padding:18px;
+    border-radius:4px;
+    cursor:pointer;
+  }
+  .cta:hover{background:var(--lime-dim);}
+  .hint{
+    font-size:13px;
+    color:var(--muted);
+    margin-top:14px;
+    text-align:center;
+  }
+  .error{
+    color:#ff8a6b;
+    font-size:13px;
+    margin-top:-10px;
+    margin-bottom:16px;
+    display:none;
+  }
+  footer{
+    border-top:1px solid var(--line);
+    padding:24px 0;
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="brand">HPU</div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <div class="eyebrow">Merch drop</div>
+      <h1>The <span>HPU</span><br>Training Tee</h1>
+      <p class="sub">Lightweight polyester, built for the gym floor and everywhere after it. One design, made for the HPU community.</p>
+      <div class="price-tag">KSh 1,500 <small>/ per shirt</small></div>
+    </div>
+    <div>
+      <div class="art">
+        <img id="mainPhoto" src="HPU-5315.jpg" alt="HPU Training Tee, front design">
+      </div>
+      <div class="gallery">
+        <img src="HPU-1167__1_.jpg" alt="HPU Training Tee worn by group at the gym" onclick="document.getElementById('mainPhoto').src=this.src">
+        <img src="IMG-20210303-WA0000.jpg" alt="HPU Training Tee in pink, worn during training" onclick="document.getElementById('mainPhoto').src=this.src">
+      </div>
+    </div>
+  </div>
+
+  <section class="order">
+    <div class="card">
+      <div class="field">
+        <label>Select your size</label>
+        <div class="sizes" id="sizeGroup">
+          <button type="button" class="size-btn">S</button>
+          <button type="button" class="size-btn">M</button>
+          <button type="button" class="size-btn">L</button>
+          <button type="button" class="size-btn">XL</button>
+          <button type="button" class="size-btn">XXL</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Select your colour</label>
+        <div class="colours" id="colourGroup">
+          <button type="button" class="colour-btn" data-colour="Red" style="--swatch:#c1382d;">Red</button>
+          <button type="button" class="colour-btn" data-colour="White" style="--swatch:#f5f6ef;">White</button>
+          <button type="button" class="colour-btn" data-colour="Black" style="--swatch:#1a1a1a;">Black</button>
+          <button type="button" class="colour-btn" data-colour="Navy Blue" style="--swatch:#1c2a4a;">Navy Blue</button>
+          <button type="button" class="colour-btn" data-colour="Pink" style="--swatch:#e0559c;">Pink</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" placeholder="e.g. Jane Wanjiru">
+      </div>
+
+      <div class="field">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" placeholder="07XX XXX XXX">
+      </div>
+
+      <div class="pay-box">
+        <b>How to pay</b>
+        <div class="till">Buy Goods Till: 9176309</div>
+        100% polyester, true to size. Go to M-Pesa, select Lipa na M-Pesa, then Buy Goods and Services. Enter the till number above and pay KSh 1,500. Once you tap "Send order on WhatsApp" below, share the M-Pesa confirmation message in the chat so I can lock in your order.
+      </div>
+
+      <div class="error" id="errorMsg">Please fill in your name, phone number, and pick a size and colour first.</div>
+
+      <button class="cta" id="orderBtn">Send order on WhatsApp</button>
+      <p class="hint">Opens WhatsApp with your order details ready to send</p>
+    </div>
+  </section>
+
+  <footer>HPU &middot; Online coaching, built with you in mind</footer>
+</div>
+
+<script>
+  const COACH_WHATSAPP = "254701835011";
+  const TILL_NUMBER = "9176309";
+  const PRICE = "1,500";
+
+  let selectedSize = null;
+  const buttons = document.querySelectorAll('.size-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSize = btn.textContent;
+    });
+  });
+
+  let selectedColour = null;
+  const colourButtons = document.querySelectorAll('.colour-btn');
+  colourButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      colourButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedColour = btn.dataset.colour;
+    });
+  });
+
+  document.getElementById('orderBtn').addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const errorMsg = document.getElementById('errorMsg');
+
+    if (!name || !phone || !selectedSize || !selectedColour) {
+      errorMsg.style.display = 'block';
+      return;
+    }
+    errorMsg.style.display = 'none';
+
+    const message = `Hi! I would like to order an HPU Training Tee.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ASize: ${selectedSize}%0AColour: ${encodeURIComponent(selectedColour)}%0APrice: KSh ${PRICE}%0A%0AI have paid via Till Number ${TILL_NUMBER} and will attach my M-Pesa confirmation here.`;
+
+    window.open(`https://wa.me/${COACH_WHATSAPP}?text=${message}`, '_blank');
+  });
+</script>
+
+</body>
+</html>
