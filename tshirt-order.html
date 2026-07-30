@@ -1,321 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HPU Training Tee</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0e0f0c;
-    --paper:#f5f6ef;
-    --lime:#c8ff4d;
-    --lime-dim:#9fd83c;
-    --line:#2a2c24;
-    --muted:#8b8d80;
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:var(--ink);
-    color:var(--paper);
-    font-family:'Inter',sans-serif;
-    line-height:1.5;
-  }
-  .wrap{
-    max-width:960px;
-    margin:0 auto;
-    padding:0 24px;
-  }
-  header{
-    padding:28px 0 20px;
-    border-bottom:1px solid var(--line);
-  }
-  .brand{
-    font-family:'Anton',sans-serif;
-    letter-spacing:0.04em;
-    font-size:22px;
-    color:var(--lime);
-  }
-  .hero{
-    padding:56px 0 40px;
-    display:grid;
-    grid-template-columns:1.1fr 1fr;
-    gap:48px;
-    align-items:center;
-  }
-  @media (max-width:760px){
-    .hero{grid-template-columns:1fr;padding:36px 0 24px;}
-  }
-  .eyebrow{
-    color:var(--lime);
-    font-size:13px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    margin-bottom:14px;
-  }
-  h1{
-    font-family:'Anton',sans-serif;
-    font-weight:400;
-    font-size:clamp(40px,7vw,64px);
-    line-height:0.95;
-    margin:0 0 18px;
-    letter-spacing:0.01em;
-  }
-  h1 span{color:var(--lime);}
-  .sub{
-    color:var(--muted);
-    font-size:16px;
-    max-width:40ch;
-    margin-bottom:28px;
-  }
-  .price-tag{
-    display:inline-flex;
-    align-items:baseline;
-    gap:8px;
-    font-family:'Anton',sans-serif;
-    font-size:32px;
-    color:var(--paper);
-  }
-  .price-tag small{
-    font-family:'Inter',sans-serif;
-    font-size:13px;
-    color:var(--muted);
-    font-weight:500;
-  }
-  .art{
-    aspect-ratio:4/5;
-    border:1px solid var(--line);
-    border-radius:4px;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(200,255,77,0.10), transparent 55%),
-      linear-gradient(160deg, #17180f 0%, #0e0f0c 70%);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    overflow:hidden;
-  }
-  .art::before{
-    content:"HPU";
-    font-family:'Anton',sans-serif;
-    font-size:120px;
-    color:rgba(200,255,77,0.06);
-    letter-spacing:0.05em;
-  }
-  .tee-mark{
-    position:absolute;
-    font-family:'Anton',sans-serif;
-    font-size:15px;
-    color:var(--lime);
-    border:1px solid var(--lime);
-    padding:6px 14px;
-    border-radius:999px;
-    letter-spacing:0.08em;
-    bottom:28px;
-  }
-  section.order{
-    padding:8px 0 72px;
-  }
-  .card{
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:32px;
-    background:#131409;
-  }
-  .field{
-    margin-bottom:20px;
-  }
-  label{
-    display:block;
-    font-size:13px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    color:var(--muted);
-    margin-bottom:10px;
-  }
-  .sizes{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-  .size-btn{
-    border:1px solid var(--line);
-    background:transparent;
-    color:var(--paper);
-    font-family:'Inter',sans-serif;
-    font-weight:600;
-    font-size:14px;
-    padding:12px 0;
-    width:56px;
-    border-radius:4px;
-    cursor:pointer;
-    transition:all 0.15s ease;
-  }
-  .size-btn:hover{border-color:var(--lime-dim);}
-  .size-btn.active{
-    background:var(--lime);
-    border-color:var(--lime);
-    color:var(--ink);
-  }
-  input[type=text], input[type=tel]{
-    width:100%;
-    background:var(--ink);
-    border:1px solid var(--line);
-    color:var(--paper);
-    padding:14px 16px;
-    border-radius:4px;
-    font-family:'Inter',sans-serif;
-    font-size:15px;
-  }
-  input:focus{
-    outline:none;
-    border-color:var(--lime);
-  }
-  .pay-box{
-    background:var(--ink);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:18px 20px;
-    margin-bottom:24px;
-    font-size:14px;
-    color:var(--muted);
-  }
-  .pay-box b{color:var(--lime);}
-  .pay-box .till{
-    font-family:'Anton',sans-serif;
-    font-size:22px;
-    color:var(--paper);
-    letter-spacing:0.04em;
-    margin:6px 0;
-  }
-  .cta{
-    width:100%;
-    background:var(--lime);
-    color:var(--ink);
-    border:none;
-    font-family:'Anton',sans-serif;
-    font-size:18px;
-    letter-spacing:0.03em;
-    padding:18px;
-    border-radius:4px;
-    cursor:pointer;
-  }
-  .cta:hover{background:var(--lime-dim);}
-  .hint{
-    font-size:13px;
-    color:var(--muted);
-    margin-top:14px;
-    text-align:center;
-  }
-  .error{
-    color:#ff8a6b;
-    font-size:13px;
-    margin-top:-10px;
-    margin-bottom:16px;
-    display:none;
-  }
-  footer{
-    border-top:1px solid var(--line);
-    padding:24px 0;
-    color:var(--muted);
-    font-size:13px;
-    text-align:center;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>High Performance Unit | Grind For Gains</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="wrap">
-  <header>
-    <div class="brand">HPU</div>
-  </header>
-
-  <div class="hero">
-    <div>
-      <div class="eyebrow">Merch drop</div>
-      <h1>The <span>HPU</span><br>Training Tee</h1>
-      <p class="sub">Heavyweight cotton, built for the gym floor and everywhere after it. One design, made for the HPU community.</p>
-      <div class="price-tag">KSh 1,500 <small>/ per shirt</small></div>
+  <!-- NAV -->
+  <nav>
+    <img src="WHITE_BACKGROUND.JPG" alt="HPU Logo" class="nav-logo" />
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a href="tshirt-order.html" style="font-family:inherit; font-weight:600; font-size:14px; padding:10px 18px; border-radius:6px; border:1.5px solid #151515; color:#151515; text-decoration:none; white-space:nowrap;">Shop the HPU Tee</a>
+      <a class="nav-cta" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
     </div>
-    <div class="art">
-      <div class="tee-mark">S &nbsp;M&nbsp; L&nbsp; XL&nbsp; XXL</div>
-    </div>
-  </div>
+  </nav>
 
-  <section class="order">
-    <div class="card">
-      <div class="field">
-        <label>Select your size</label>
-        <div class="sizes" id="sizeGroup">
-          <button type="button" class="size-btn">S</button>
-          <button type="button" class="size-btn">M</button>
-          <button type="button" class="size-btn">L</button>
-          <button type="button" class="size-btn">XL</button>
-          <button type="button" class="size-btn">XXL</button>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Remote Fitness Coaching &mdash; Worldwide</p>
+      <h1>Get Lean, Strong<br>&amp; Disciplined</h1>
+      <p class="hero-sub">A structured program built for busy, driven people who want real results without stepping foot in a gym or being hovered over by a trainer.</p>
+      <p class="tagline">Grind For Gains</p>
+      <a class="btn-gold" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
+    </div>
+    <img src="HPU-6156.jpg" alt="HPU Training" class="hero-img" />
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="section light">
+    <div class="section-inner">
+      <p class="section-label">Who This Is For</p>
+      <h2>Built For People Who Are Serious About Results</h2>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">&#128188;</div>
+          <h3>The Busy Corporate Professional</h3>
+          <p>You have a demanding career and zero time to figure out what works. We build your program, you just show up and execute.</p>
         </div>
+
+        <div class="card">
+          <div class="card-icon">&#127758;</div>
+          <h3>The Remote Worker or Traveller</h3>
+          <p>Whether you are in Nairobi, London or Tokyo, your program travels with you and your coach checks in remotely every week.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">&#127919;</div>
+          <h3>The Autonomous Individual</h3>
+          <p>You do not need someone breathing down your neck at the gym. You want a system, clear direction and periodic accountability from a distance.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">&#127775;</div>
+          <h3>The Self-Driven Person Who Needs a System</h3>
+          <p>You know what you want but keep restarting. HPU gives you a personalised program so you stop guessing and start progressing.</p>
+        </div>
+
       </div>
-
-      <div class="field">
-        <label for="name">Full name</label>
-        <input type="text" id="name" placeholder="e.g. Jane Wanjiru">
-      </div>
-
-      <div class="field">
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" placeholder="07XX XXX XXX">
-      </div>
-
-      <div class="pay-box">
-        <b>How to pay</b>
-        <div class="till">Buy Goods Till: 000000</div>
-        Go to M-Pesa, select Lipa na M-Pesa, then Buy Goods and Services. Enter the till number above and pay KSh 1,500. Once you tap "Send order on WhatsApp" below, share the M-Pesa confirmation message in the chat so I can lock in your order.
-      </div>
-
-      <div class="error" id="errorMsg">Please fill in your name, phone number, and pick a size first.</div>
-
-      <button class="cta" id="orderBtn">Send order on WhatsApp</button>
-      <p class="hint">Opens WhatsApp with your order details ready to send</p>
     </div>
   </section>
 
-  <footer>HPU &middot; Online coaching, built with you in mind</footer>
-</div>
+  <!-- PHOTO STRIP -->
+  <div class="photo-strip">
+    <img src="HPU-5315.jpg" alt="HPU Training" />
+    <img src="HPU-6154.jpg" alt="HPU Training" />
+    <img src="HPU-6203.jpg" alt="HPU Training" />
+    <img src="IMG-20210303-WA0000.jpg" alt="HPU Team" />
+  </div>
 
-<script>
-  const COACH_WHATSAPP = "254700000000"; // EDIT ME: replace with coach's WhatsApp number, format 2547XXXXXXXX
-  const TILL_NUMBER = "000000"; // EDIT ME: replace with real Till Number
-  const PRICE = "1,500";
+  <!-- WHAT YOU GET -->
+  <section class="section dark">
+    <div class="section-inner">
+      <p class="section-label gold">What You Get</p>
+      <h2 class="white">Everything You Need. Nothing You Don't.</h2>
+      <div class="cards">
 
-  let selectedSize = null;
-  const buttons = document.querySelectorAll('.size-btn');
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      selectedSize = btn.textContent;
-    });
-  });
+        <div class="card dark-card">
+          <div class="card-icon gold-icon">&#128203;</div>
+          <h3 class="white">Custom Workout Program</h3>
+          <p>Built specifically for your goals, schedule and available equipment. No generic plans, no guesswork, no wasted sessions.</p>
+        </div>
 
-  document.getElementById('orderBtn').addEventListener('click', () => {
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const errorMsg = document.getElementById('errorMsg');
+        <div class="card dark-card">
+          <div class="card-icon gold-icon">&#128241;</div>
+          <h3 class="white">Remote Check-ins via WhatsApp</h3>
+          <p>Weekly check-ins to track progress, adjust the program and keep you accountable from wherever you are in the world.</p>
+        </div>
 
-    if (!name || !phone || !selectedSize) {
-      errorMsg.style.display = 'block';
-      return;
-    }
-    errorMsg.style.display = 'none';
+        <div class="card dark-card">
+          <div class="card-icon gold-icon">&#127807;</div>
+          <h3 class="white">Nutrition Guidance</h3>
+          <p>Simple, practical eating advice that fits your lifestyle. No crash diets, no complicated meal plans that are impossible to follow.</p>
+        </div>
 
-    const message = `Hi! I would like to order an HPU Training Tee.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ASize: ${selectedSize}%0APrice: KSh ${PRICE}%0A%0AI have paid via Till Number ${TILL_NUMBER} and will attach my M-Pesa confirmation here.`;
+        <div class="card dark-card">
+          <div class="card-icon gold-icon">&#128200;</div>
+          <h3 class="white">Quarterly Program Updates</h3>
+          <p>Your program is fully reviewed and updated every quarter to match your progress, keep things fresh and ensure you never stop moving forward.</p>
+        </div>
 
-    window.open(`https://wa.me/${COACH_WHATSAPP}?text=${message}`, '_blank');
-  });
-</script>
+      </div>
+    </div>
+  </section>
+
+  <!-- COACH SECTION -->
+  <section class="section light coach-section">
+    <div class="section-inner coach-inner">
+      <img src="HPU-1167__1_.jpg" alt="HPU Coach" class="coach-photo" />
+      <div class="coach-text">
+        <p class="section-label">Your Coach</p>
+        <h2>Real Coaching. Real Accountability. Real Results.</h2>
+        <p>Brian Odhiambo is a certified fitness coach with more than 7 years of experience in strength, conditioning and personal training. He spent over 4 years as a personal trainer at the Public Service Club, one of Nairobi's most prestigious high-end members clubs.</p>
+        <p>HPU was built on one belief: that every serious person deserves a program that fits their life, not the other way around. No gym required. No rigid schedules. Just consistent progress, checked on remotely, on your terms.</p>
+        <a class="btn-gold" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="section-inner">
+      <p class="section-label gold">FAQ</p>
+      <h2 class="white">Still Have Questions?</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <span class="faq-num">01</span>
+          <div class="faq-body">
+            <h3 class="faq-q">Do I need a gym?</h3>
+            <div class="faq-divider"></div>
+            <p class="faq-a">Not at all. The program is designed to work wherever you are. That said, access to a gym does open up more exercise variety and equipment, which can accelerate your progress. Either way, we build the program around what you have available.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <span class="faq-num">02</span>
+          <div class="faq-body">
+            <h3 class="faq-q">Do I have to commit to the full quarter?</h3>
+            <div class="faq-divider"></div>
+            <p class="faq-a">No. While the program is structured quarterly for best results, you can start on a monthly basis and upgrade whenever you are ready. No lock-in contracts, no penalties, cancel anytime.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <span class="faq-num">03</span>
+          <div class="faq-body">
+            <h3 class="faq-q">How does the program actually work?</h3>
+            <div class="faq-divider"></div>
+            <p class="faq-a">Once you sign up, you get access to the HPU app where your fully customised program lives. Every workout is laid out for you — log in, follow the session and mark it complete. On my end I can see every session you attend, track your consistency and make adjustments as needed. No guesswork. No figuring it out alone.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <span class="faq-num">04</span>
+          <div class="faq-body">
+            <h3 class="faq-q">How do the assessments work?</h3>
+            <div class="faq-divider"></div>
+            <p class="faq-a">Assessments are done through the app. You fill in a questionnaire covering your health, lifestyle and goals. I then assign you a set of physical tests — a wall squat, a Cooper run test and a push-up test. You perform them, log the results and that data gives me a clear picture of your fitness level so I can build the right program for you. Assessments are repeated periodically to track your progress.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <span class="faq-num">05</span>
+          <div class="faq-body">
+            <h3 class="faq-q">I have never followed a structured program before. Is this for me?</h3>
+            <div class="faq-divider"></div>
+            <p class="faq-a">Absolutely. Most clients start exactly where you are. The program is built around your current level, not where you think you should be. Whether you are a complete beginner or someone returning after a long break, we meet you where you are and build from there at a pace that works for you.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section dark pricing-section">
+    <div class="section-inner">
+      <p class="section-label gold">Pricing</p>
+      <h2 class="white">Simple. Transparent. No Surprises.</h2>
+      <p class="section-sub">No hidden fees. No lock-in contracts. Cancel anytime.</p>
+      <div class="price-card">
+        <p class="price-label">Quarterly Subscription</p>
+        <p class="price-amount">KES 6,000 <span>/month</span></p>
+        <ul class="price-list">
+          <li>&#10003;&nbsp; Personalised workout program</li>
+          <li>&#10003;&nbsp; Weekly remote check-ins via WhatsApp</li>
+          <li>&#10003;&nbsp; Nutrition guidance</li>
+          <li>&#10003;&nbsp; Full program review and update every quarter</li>
+          <li>&#10003;&nbsp; Direct WhatsApp access to your coach</li>
+          <li>&#10003;&nbsp; Works from anywhere in the world</li>
+          <li>&#10003;&nbsp; Cancel anytime, no penalties</li>
+        </ul>
+        <a class="btn-gold" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section light">
+    <div class="section-inner">
+      <p class="section-label">Client Reviews</p>
+      <h2>What People Say About Training With Brian</h2>
+      <p class="reviews-meta">4.95 &nbsp;&#9733;&#9733;&#9733;&#9733;&#9733;&nbsp; 99% recommended</p>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is a professional and reliable trainer who is also flexible. He tailor makes the training program to suit your individual needs and goals."</p>
+          <p class="review-author">Stella</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is the very definition of professionalism. He makes your fitness journey his own which allows you to feel fully supported every step of the way."</p>
+          <p class="review-author">Mkambe</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is very professional, knowledgeable and flexible to work with. His programmes are well planned and results speak for themselves."</p>
+          <p class="review-author">Francis</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is a very professional, kind, patient and understanding trainer. He is so easy to communicate with and genuinely cares about your progress."</p>
+          <p class="review-author">Janet</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is a great trainer. He is consistent, pushes you to your greatest potential and helps you build confidence in yourself and your abilities."</p>
+          <p class="review-author">Eve</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"I have trained with the High Performance Unit for slightly over a year. Brian as a personal trainer is in a class of his own. Worth every shilling."</p>
+          <p class="review-author">Christine</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"You got to experience it to believe it. A patient and encouraging trainer who supports you through every step of your fitness journey."</p>
+          <p class="review-author">Nasimiyu</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is a dedicated and qualified trainer offering top class, results oriented training. I would recommend him without hesitation."</p>
+          <p class="review-author">Jerry</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="review-text">"Brian is professional, supportive and encouraging. The training program is the best fit for your fitness goals and he keeps you fully accountable."</p>
+          <p class="review-author">Carol</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM PHOTO -->
+  <div class="bottom-photo">
+    <img src="HPU-6157.jpg" alt="HPU Outdoor Training" />
+    <div class="bottom-overlay">
+      <h2>Your transformation starts with one message.</h2>
+      <a class="btn-gold" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank">Let me begin the program</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img src="WHITE_BACKGROUND.JPG" alt="HPU Logo" class="footer-logo" />
+    <p class="footer-tagline">High Performance Unit &mdash; Grind For Gains</p>
+    <p class="footer-sub">Remote Fitness Coaching &nbsp;|&nbsp; Available Worldwide &nbsp;|&nbsp; Based in Nairobi, Kenya</p>
+    <p class="footer-sub">&#128222; <a href="https://wa.me/254701835011" target="_blank">+254 701 835 011</a></p>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp-float" href="https://wa.me/254701835011?text=Hi%2C%20I%20want%20to%20begin%20the%20HPU%20program" target="_blank" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" fill="white">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.469 2.027 7.774L0 32l8.522-2.006A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.27 13.27 0 0 1-6.766-1.846l-.484-.287-5.06 1.191 1.22-4.942-.316-.507A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.878c-.398-.199-2.356-1.163-2.72-1.295-.365-.133-.631-.199-.897.199-.266.398-1.031 1.295-1.264 1.561-.232.266-.465.299-.863.1-.398-.199-1.681-.619-3.202-1.977-1.183-1.056-1.981-2.36-2.213-2.758-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.698.199-.232.265-.398.398-.664.133-.266.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.673-.897-.685l-.764-.013c-.266 0-.697.1-1.063.498-.365.398-1.395 1.362-1.395 3.324 0 1.962 1.428 3.858 1.627 4.124.199.266 2.812 4.294 6.813 6.023.952.411 1.695.657 2.274.841.955.304 1.825.261 2.513.158.766-.114 2.356-.963 2.688-1.894.332-.931.332-1.729.232-1.894-.099-.166-.365-.266-.763-.465z"/>
+    </svg>
+  </a>
 
 </body>
 </html>
